@@ -106,3 +106,21 @@ You can also restrict expiries:
 This repository is for research and engineering demonstration only.
 It is not financial advice and should not be used for live trading without
 independent validation.
+
+## Visualization examples
+
+Generate demo charts:
+
+    python examples/visualizations.py
+
+This writes three PNG files to results/:
+
+- demo_vol_surface_heatmap.png
+- demo_hedging_pnl_histogram.png
+- demo_portfolio_greeks.png
+
+The visualization module supports:
+
+- implied-volatility surface heatmaps
+- delta-hedging PnL histograms
+- portfolio Greeks bar charts
