@@ -8,3 +8,6 @@ __pycache__/
 .env
 .DS_Store
 test_result.txt
+!docs/
+!docs/assets/
+!docs/assets/*.png

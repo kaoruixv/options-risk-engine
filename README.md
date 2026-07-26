@@ -113,6 +113,21 @@ This repository is for research and engineering demonstration only.
 It is not financial advice and should not be used for live trading without
 independent validation.
 
+
+## Example outputs
+
+Volatility surface heatmap:
+
+![Volatility surface heatmap](docs/assets/demo_vol_surface_heatmap.png)
+
+Delta-hedging PnL distribution:
+
+![Delta-hedging PnL histogram](docs/assets/demo_hedging_pnl_histogram.png)
+
+Portfolio Greeks:
+
+![Portfolio Greeks](docs/assets/demo_portfolio_greeks.png)
+
 ## Visualization examples
 
 Generate demo charts:
