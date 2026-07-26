@@ -1,5 +1,11 @@
 # options-risk-engine
 
+[![CI](https://github.com/kaoruixv/options-risk-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/kaoruixv/options-risk-engine/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/kaoruixv/options-risk-engine?include_prereleases)](https://github.com/kaoruixv/options-risk-engine/releases)
+
+
 A Python engine for option pricing, implied-volatility surface construction,
 portfolio Greek aggregation, and delta-hedging simulation.
 
@@ -124,3 +130,14 @@ The visualization module supports:
 - implied-volatility surface heatmaps
 - delta-hedging PnL histograms
 - portfolio Greeks bar charts
+
+
+## Development note
+
+This repository was built with AI-assisted development, including GPT-5.6,
+for code scaffolding, debugging, documentation drafting, and test iteration.
+
+The implementation is not presented as manually written line-by-line from
+scratch. The project is presented as an engineering sample showing how to
+design, test, validate, and package a quantitative-finance Python library
+with clear modules and reproducible checks.

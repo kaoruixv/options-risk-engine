@@ -24,3 +24,10 @@ Initial release:
 - delta-hedging backtest
 - pytest test suite
 - GitHub Actions CI
+
+## Unreleased
+
+Documentation polish:
+
+- added README badges
+- added transparent AI-assisted development note
