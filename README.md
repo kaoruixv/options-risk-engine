@@ -1,20 +1,108 @@
 # options-risk-engine
 
-Derivatives pricing, implied-vol surface construction, delta-hedging
-simulation, and portfolio risk measurement.
+A Python engine for option pricing, implied-volatility surface construction,
+portfolio Greek aggregation, and delta-hedging simulation.
 
-Status: in development. Pricing module (Black-Scholes, CRR binomial)
-complete with test coverage. Vol surface, hedging backtest, and risk
-modules to follow.
+The project is designed as a clean quantitative-finance engineering sample:
+small modules, typed data containers, deterministic tests, and a runnable
+end-to-end pipeline.
 
-## Quickstart
+## Features
 
+- Black-Scholes European option pricing
+- Full Greek output: delta, gamma, vega, theta, rho, vanna, volga
+- Cox-Ross-Rubinstein binomial tree pricing
+- American and European exercise support
+- Monte Carlo European option pricing with antithetic variates
+- Implied-volatility solver using Brent root finding
+- Yahoo Finance option-chain normalization
+- Implied-volatility surface construction
+- Portfolio-level value and Greek aggregation
+- Scenario revaluation PnL
+- Discrete delta-hedging backtest
+- Pytest test suite and GitHub Actions CI
+
+## Project structure
+
+    src/options_risk_engine/
+      pricing/            Black-Scholes, binomial, Monte Carlo, implied vol
+      market_data/        Yahoo Finance option-chain adapter
+      vol_surface/        IV point cloud and surface matrix builder
+      risk/               Portfolio value and Greek aggregation
+      hedging_backtest/   Discrete delta-hedging simulation
+
+## Install
+
+    git clone https://github.com/kaoruixv/options-risk-engine.git
+    cd options-risk-engine
     uv venv .venv --python 3.12
     source .venv/bin/activate
     uv pip install -e ".[dev]"
-    pytest
 
-## Other projects
+## Run tests
 
-- https://github.com/kaoruixv/qt-engine
-- https://github.com/kaoruixv/meta-equity-research
+    pytest -q
+
+## Quickstart
+
+    python examples/quickstart.py
+
+Expected output includes prices from three engines, recovered implied
+volatility, portfolio-level Greeks, and mean delta-hedging PnL.
+
+## Build a volatility surface from Yahoo Finance
+
+    python scripts/build_surface.py --symbol AAPL --spot 200 --rate 0.04
+
+This writes CSV outputs to results/:
+
+- AAPL_iv_points.csv
+- AAPL_rejected_quotes.csv
+- AAPL_surface_matrix.csv
+
+You can also restrict expiries:
+
+    python scripts/build_surface.py --symbol AAPL --spot 200 --rate 0.04 --expiries 2026-08-21,2026-09-18
+
+## Example: pricing
+
+    from options_risk_engine.pricing import black_scholes
+
+    result = black_scholes(
+        S=100.0,
+        K=100.0,
+        T=1.0,
+        r=0.05,
+        sigma=0.20,
+        option_type="call",
+    )
+
+    print(result.price)
+    print(result.greeks.delta)
+
+## Example: portfolio risk
+
+    from options_risk_engine.risk import OptionPosition, aggregate_portfolio_risk
+
+    positions = [
+        OptionPosition("AAPL", "call", 1, 200.0, 210.0, 0.5, 0.04, 0.25),
+        OptionPosition("AAPL", "put", -1, 200.0, 190.0, 0.5, 0.04, 0.28),
+    ]
+
+    risk = aggregate_portfolio_risk(positions)
+    print(risk.total_value)
+    print(risk.greeks.delta)
+
+## Engineering notes
+
+- No API keys are hardcoded.
+- All tests use deterministic seeds or fake data adapters.
+- Live Yahoo Finance access is isolated in the market_data module.
+- Quote cleaning and implied-volatility inversion are separated.
+- The portfolio layer is model-agnostic after individual positions are priced.
+
+## Disclaimer
+
+This repository is for research and engineering demonstration only.
+It is not financial advice and should not be used for live trading without
+independent validation.
