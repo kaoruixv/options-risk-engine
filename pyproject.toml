@@ -30,3 +30,8 @@ addopts = "--tb=short -q"
 [tool.ruff]
 src = ["src"]
 line-length = 100
+
+[project.urls]
+Repository = "https://github.com/kaoruixv/options-risk-engine"
+Issues = "https://github.com/kaoruixv/options-risk-engine/issues"
+Changelog = "https://github.com/kaoruixv/options-risk-engine/blob/main/CHANGELOG.md"
