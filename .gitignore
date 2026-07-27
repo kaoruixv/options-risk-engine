@@ -11,3 +11,5 @@ test_result.txt
 !docs/
 !docs/assets/
 !docs/assets/*.png
+coverage.xml
+.coverage
