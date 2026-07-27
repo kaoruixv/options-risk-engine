@@ -3,6 +3,8 @@
 These tests do not call the network. They use a fake ticker object that has
 the same minimal interface as yfinance.Ticker.
 """
+from typing import ClassVar
+
 import pandas as pd
 import pytest
 
@@ -42,7 +44,7 @@ class FakeOptionChain:
 
 
 class FakeTicker:
-    options = ["2030-01-17", "2030-06-21"]
+    options: ClassVar[list[str]] = ["2030-01-17", "2030-06-21"]
 
     def __init__(self, symbol: str) -> None:
         self.symbol = symbol

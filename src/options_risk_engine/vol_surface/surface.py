@@ -15,7 +15,6 @@ import pandas as pd
 
 from options_risk_engine.pricing.implied_vol import implied_volatility
 
-
 REQUIRED_COLUMNS = {
     "option_type",
     "strike",
@@ -144,7 +143,7 @@ def build_vol_surface(
                 }
             )
 
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - intentional: reject bad quote rows, don't crash the pipeline
             rejected.append(
                 {
                     "source_index": original_index,

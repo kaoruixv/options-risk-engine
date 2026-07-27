@@ -35,3 +35,7 @@ line-length = 100
 Repository = "https://github.com/kaoruixv/options-risk-engine"
 Issues = "https://github.com/kaoruixv/options-risk-engine/issues"
 Changelog = "https://github.com/kaoruixv/options-risk-engine/blob/main/CHANGELOG.md"
+
+[[tool.mypy.overrides]]
+module = "yfinance.*"
+ignore_missing_imports = true

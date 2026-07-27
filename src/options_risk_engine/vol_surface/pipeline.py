@@ -6,9 +6,9 @@ so tests do not need live network calls.
 """
 from __future__ import annotations
 
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from datetime import date
-from typing import Callable, Iterable
 
 import pandas as pd
 

@@ -34,10 +34,10 @@ def test_confidence_interval_is_well_formed(atm_call):
 @pytest.mark.parametrize(
     "kwargs,match",
     [
-        (dict(S=0.0), "S and K must be positive"),
-        (dict(T=0.0), "T must be positive"),
-        (dict(sigma=0.0), "sigma must be positive"),
-        (dict(n_paths=1), "n_paths must be at least 2"),
+        ({"S": 0.0}, "S and K must be positive"),
+        ({"T": 0.0}, "T must be positive"),
+        ({"sigma": 0.0}, "sigma must be positive"),
+        ({"n_paths": 1}, "n_paths must be at least 2"),
     ],
 )
 def test_invalid_inputs_raise(atm_call, kwargs, match):

@@ -1,8 +1,8 @@
 """Visualization utilities for volatility surfaces, hedging PnL, and Greeks."""
 from __future__ import annotations
 
+from collections.abc import Mapping
 from pathlib import Path
-from typing import Mapping
 
 import matplotlib.pyplot as plt
 import pandas as pd

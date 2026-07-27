@@ -5,7 +5,7 @@ from options_risk_engine.hedging_backtest.backtest import (
 )
 
 __all__ = [
-    "simulate_delta_hedge",
     "HedgingBacktestResult",
     "HedgingSummary",
+    "simulate_delta_hedge",
 ]

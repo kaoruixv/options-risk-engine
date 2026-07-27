@@ -16,7 +16,7 @@ from options_risk_engine.risk import OptionPosition, aggregate_portfolio_risk
 
 
 def main() -> None:
-    params = dict(S=100.0, K=100.0, T=1.0, r=0.05, sigma=0.20)
+    params = {"S": 100.0, "K": 100.0, "T": 1.0, "r": 0.05, "sigma": 0.20}
 
     bs = black_scholes(**params, option_type="call")
     tree = binomial_price(**params, option_type="call", american=False, n_steps=1000)

@@ -16,7 +16,6 @@ from datetime import date
 import pandas as pd
 import yfinance as yf
 
-
 NORMALIZED_COLUMNS = [
     "symbol",
     "expiry",
