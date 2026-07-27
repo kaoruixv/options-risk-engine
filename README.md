@@ -146,7 +146,26 @@ The visualization module supports:
 - delta-hedging PnL histograms
 - portfolio Greeks bar charts
 
+## References
 
+The models implemented here are standard results from the derivatives
+pricing literature, not original research. Credited here rather than
+left implicit:
+
+- Black, F., & Scholes, M. (1973). *The Pricing of Options and Corporate
+  Liabilities.* Journal of Political Economy, 81(3), 637–654.
+- Merton, R. C. (1973). *Theory of Rational Option Pricing.* Bell Journal
+  of Economics and Management Science, 4(1), 141–183. (continuous
+  dividend yield extension)
+- Cox, J. C., Ross, S. A., & Rubinstein, M. (1979). *Option Pricing: A
+  Simplified Approach.* Journal of Financial Economics, 7(3), 229–263.
+  (CRR binomial tree)
+- Brent, R. P. (1973). *Algorithms for Minimization Without Derivatives.*
+  Prentice-Hall. (root-finding method used for implied-volatility
+  inversion, via `scipy.optimize.brentq`)
+- Hull, J. C. *Options, Futures, and Other Derivatives.* Pearson.
+  (Greek scaling conventions and delta-hedging mechanics used throughout)
+  
 ## Development note
 
 This repository was built with AI-assisted development, including GPT-5.6,
